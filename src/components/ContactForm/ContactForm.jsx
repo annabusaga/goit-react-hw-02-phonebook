@@ -2,26 +2,24 @@ import React, { Component } from 'react';
 
 export default class ContactForm extends Component {
   state = {
-    contacts: [],
     name: '',
     number: '',
   };
 
   handlerInput = event => {
-    this.setState({ [event.currentTarget.name]: event.currentTarget.value });
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   handlerSubmit = event => {
     event.preventDefault();
-    this.props.onSubmit(this.state);
 
-    this.props.addContact(this.state.name);
-    this.setState({ name: '' });
+    this.props.onSubmit({ ...this.state });
+
     this.reset();
   };
 
   reset = () => {
-    this.setState({ contacts: [], name: '' });
+    this.setState({ name: '', number: '' });
   };
   render() {
     return (
