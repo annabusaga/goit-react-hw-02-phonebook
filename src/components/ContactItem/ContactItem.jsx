@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import css from './ContactItem.module.css';
+import { PropTypes } from 'prop-types';
 
 export default function ContactItem({ name, number, id, onDeleteTodo }) {
   return (
@@ -6,8 +8,15 @@ export default function ContactItem({ name, number, id, onDeleteTodo }) {
       <li>
         <p>{name}</p>
         <p>{number}</p>
-        <button onClick={() => onDeleteTodo(id)}>Delete</button>
+        <button className={css.btn} onClick={() => onDeleteTodo(id)}>Delete</button>
       </li>
     </>
   );
 }
+
+ContactItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  onDeleteTodo: PropTypes.func.isRequired,
+};
