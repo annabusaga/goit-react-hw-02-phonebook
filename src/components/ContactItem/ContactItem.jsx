@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import css from './ContactItem.module.css';
 import { PropTypes } from 'prop-types';
 
@@ -8,7 +8,9 @@ export default function ContactItem({ name, number, id, onDeleteTodo }) {
       <li>
         <p>{name}</p>
         <p>{number}</p>
-        <button className={css.btn} onClick={() => onDeleteTodo(id)}>Delete</button>
+        <button className={css.btn} onClick={() => onDeleteTodo(id)}>
+          Delete
+        </button>
       </li>
     </>
   );
